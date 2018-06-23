@@ -73,6 +73,7 @@ int main()
 			double sense_theta = std::stod(j[1]["sense_theta"].get<std::string>());
 
 			pf.init(sense_x, sense_y, sense_theta, sigma_pos);
+			cout<<"Initializing particle filter"<<endl;
 		  }
 		  else {
 			// Predict the vehicle's next state from previous (noiseless control) data.
@@ -102,7 +103,7 @@ int main()
         	std::istream_iterator<float>(),
         	std::back_inserter(y_sense));
 
-        	for(int i = 0; i < x_sense.size(); i++)
+        	for(unsigned int i = 0; i < x_sense.size(); i++)
         	{
         		LandmarkObs obs;
         		obs.x = x_sense[i];
